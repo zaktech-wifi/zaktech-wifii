@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muss Tech WiFi</title>
+    <title>ZAK Tech WiFi</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -40,7 +40,7 @@
             margin-bottom: 20px;
         }
         .trial-badge {
-            background-color: #A3E635; /* Lime green */
+            background-color: #A3E635;
             color: #333;
             padding: 8px 15px;
             border-radius: 20px;
@@ -55,7 +55,7 @@
             border-collapse: collapse;
         }
         .pricing-table th {
-            background-color: #A3E635; /* Lime green */
+            background-color: #A3E635;
             color: #333;
             padding: 10px;
             text-align: center;
@@ -92,7 +92,7 @@
             box-sizing: border-box;
         }
         .login-btn {
-            background-color: #A3E635; /* Lime green */
+            background-color: #A3E635;
             color: #333;
             border: none;
             padding: 12px 20px;
@@ -104,7 +104,7 @@
             font-weight: bold;
         }
         .login-btn:hover {
-            background-color: #84CC16; /* Darker lime */
+            background-color: #84CC16;
         }
         .payment-method {
             font-size: 14px;
@@ -121,6 +121,10 @@
             font-size: 12px;
             color: #888;
         }
+        .error {
+            color: red;
+            margin-bottom: 15px;
+        }
     </style>
 </head>
 <body>
@@ -128,8 +132,10 @@
         <div class="logo">Sign in to ZAK Tech WiFi</div>
         <div class="wifi-name">ZAK TECH Hotspot</div>
         <div class="brand">MUSS TECH</div>
-      <div class="trial-badge">FREE TRIAL</div>
+        <div class="trial-badge">FREE TRIAL</div>
         <div class="trial-badge">AFFORDABLE INTERNET PLANS</div>
+        
+        <div class="error">$(error)</div>
         
         <table class="pricing-table">
             <tr>
@@ -156,12 +162,22 @@
         
         <div class="note">Note: If you're more than 1 person in the same house, it's negotiable!</div>
         
-        <div class="input-group">
-            <label>Please enter your Username:</label>
-            <input type="text" placeholder="Username">
-        </div>
-        
-        <button class="login-btn">LOGIN</button>
+        <form method="post" action="$(link-login-only)" name="login">
+            <input type="hidden" name="dst" value="$(link-orig)" />
+            <input type="hidden" name="popup" value="true" />
+            
+            <div class="input-group">
+                <label>Please enter your Username:</label>
+                <input type="text" name="username" placeholder="Username" required>
+            </div>
+            
+            <div class="input-group">
+                <label>Password:</label>
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            
+            <button class="login-btn" type="submit">LOGIN</button>
+        </form>
         
         <div class="payment-method">Payment Method: Mobile Money For Voucher</div>
         <div class="help-contact">Contact for Voucher: 0744 719149//0783 265585 Namez Biira Jolly</div>
